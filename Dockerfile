@@ -9,4 +9,5 @@ RUN mix local.hex --force && mix local.rebar --force && \
 
 RUN mix archive.install hex phx_new 1.5.13
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update -qq
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update -qq && \
+    apt-get install inotify-tools -y
