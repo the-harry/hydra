@@ -10,7 +10,14 @@ defmodule Hydra.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -41,7 +48,29 @@ defmodule Hydra.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      # Analise de Codigo
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      # Cobertura de Testes
+      {:excoveralls, "~> 0.10", only: :test},
+      # TDD
+      {:mix_test_watch, "~> 1.0", only: :dev},
+      # GraphQl
+      {:absinthe, "~> 1.6"},
+      {:absinthe_relay, "~> 1.5", override: true},
+      # https://relay.dev construir apps escalaveis
+      {:absinthe_plug, "~> 1.5", override: true},
+      # utilizar com websockets
+      {:absinthe_phoenix, "~> 2.0"},
+      # lidar com erros de maneira Simples
+      {:absinthe_error_payload, "~> 1.1"},
+      # lidar com queries de banco de dados
+      {:dataloader, "~> 1.0.0"},
+      # para mocar dados,
+      {:mock, "~> 0.3.0", only: :test},
+      {:brod, "~> 3.15"},
+      {:broadway, "~> 1.0"},
+      {:broadway_kafka, "~> 0.3.0"}
     ]
   end
 

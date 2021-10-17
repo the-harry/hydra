@@ -1,0 +1,17 @@
+{
+    "skip_files": [
+      "test/support/data_case.ex",
+      "test/support/conn_case.ex",
+      "test/support/channel_case.ex",
+      "lib/hydra_web/telemetry.ex",
+      "lib/hydra_web/views/error_helpers.ex",
+      "lib/hydra_web/channels/user_socket.ex",
+      "lib/hydra_web.ex",
+      "lib/hydra/application.ex"
+    ],
+    "coverage_options": {
+        "treat_no_relevant_lines_as_covered": true,
+        "output_dir": "cover/",
+        "minimum_coverage": 95
+    }
+}
