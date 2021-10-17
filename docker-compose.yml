@@ -11,6 +11,7 @@ services:
       - .:/hydra
     depends_on:
       - postgres
+      - zookeeper
       - kafka
     command: bash -c "mix ecto.setup && mix phx.server"
 
